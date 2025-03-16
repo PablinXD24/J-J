@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Moderno</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="hanger-icon">
+      <i class="fas fa-tshirt"></i> <!-- Ícone de cabide -->
+    </div>
+    <ul class="sidebar-links">
+      <li><a href="#roupas"><i class="fas fa-shirt"></i> Roupas</a></li>
+      <li><a href="#doces"><i class="fas fa-candy-cane"></i> Doces</a></li>
+      <li><a href="#perfumaria"><i class="fas fa-spray-can"></i> Perfumaria</a></li>
+    </ul>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <header>
+    <nav>
+      <div class="logo">Catálogo Moderno</div>
+      <ul class="nav-links">
+        <li><a href="#roupas">Roupas</a></li>
+        <li><a href="#doces">Doces</a></li>
+        <li><a href="#perfumaria">Perfumaria</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bem-vindo ao nosso catálogo</h1>
+      <p>Explore nossas coleções de roupas, doces e perfumaria.</p>
+    </div>
+  </section>
+
+  <!-- Seção de Roupas -->
+  <section id="roupas" class="category">
+    <h2>Roupas</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="roupas-carousel"></div>
+      <!-- Botões de navegação do carrossel -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Seção de Doces -->
+  <section id="doces" class="category">
+    <h2>Doces</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="doces-carousel"></div>
+      <!-- Botões de navegação do carrossel -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Seção de Perfumaria -->
+  <section id="perfumaria" class="category">
+    <h2>Perfumaria</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="perfumaria-carousel"></div>
+      <!-- Botões de navegação do carrossel -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Catálogo Moderno. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
