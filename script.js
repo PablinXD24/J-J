@@ -1,112 +1,84 @@
-// Dados dos produtos
-const produtos = {
-  roupas: [
-    { imagem: "imagens/roupa1.jpg", nome: "Camiseta Branca", descricao: "Estilo casual e confortável." },
-    { imagem: "imagens/roupa2.jpg", nome: "Jaqueta Jeans", descricao: "Perfeita para looks urbanos." },
-    { imagem: "imagens/roupa3.jpg", nome: "Vestido Floral", descricao: "Ideal para o verão." },
-    { imagem: "imagens/roupa4.jpg", nome: "Calça Skinny", descricao: "Conforto e estilo." },
-    { imagem: "imagens/roupa5.jpg", nome: "Blazer Slim", descricao: "Elegância para ocasiões especiais." },
-  ],
-  doces: [
-    { imagem: "imagens/doce1.jpg", nome: "Chocolate Amargo", descricao: "Feito com cacau 70%." },
-    { imagem: "imagens/doce2.jpg", nome: "Brigadeiro Gourmet", descricao: "Delicioso e cremoso." },
-    { imagem: "imagens/doce3.jpg", nome: "Bolo de Chocolate", descricao: "Feito com muito carinho." },
-    { imagem: "imagens/doce4.jpg", nome: "Macaron", descricao: "Colorido e saboroso." },
-    { imagem: "imagens/doce5.jpg", nome: "Trufas", descricao: "Recheio surpresa." },
-  ],
-  perfumaria: [
-    { imagem: "imagens/perfume1.jpg", nome: "Perfume Florais", descricao: "Fragrância suave e duradoura." },
-    { imagem: "imagens/perfume2.jpg", nome: "Colônia Cítrica", descricao: "Ideal para o dia a dia." },
-    { imagem: "imagens/perfume3.jpg", nome: "Perfume Amadeirado", descricao: "Para ocasiões especiais." },
-    { imagem: "imagens/perfume4.jpg", nome: "Água de Colônia", descricao: "Frescor e leveza." },
-    { imagem: "imagens/perfume5.jpg", nome: "Perfume Oriental", descricao: "Exótico e marcante." },
-  ],
-};
+let carrinho = [];
 
-// Função para criar cards dinamicamente
-function criarCards(produtos, containerId) {
-  const container = document.getElementById(containerId);
-  produtos.forEach((produto) => {
-    const card = `
-      <div class="swiper-slide">
-        <div class="product-card">
-          <img src="${produto.imagem}" alt="${produto.nome}">
-          <h3>${produto.nome}</h3>
-          <p>${produto.descricao}</p>
-        </div>
-      </div>
-    `;
-    container.innerHTML += card;
-  });
+// Função para abrir o pop-up
+function abrirPopup() {
+  const popup = document.getElementById('popup-pascoa');
+  popup.style.display = 'flex';
 }
 
-// Gerar cards para cada categoria
-criarCards(produtos.roupas, "roupas-carousel");
-criarCards(produtos.doces, "doces-carousel");
-criarCards(produtos.perfumaria, "perfumaria-carousel");
+// Função para fechar o pop-up
+function fecharPopup() {
+  const popup = document.getElementById('popup-pascoa');
+  popup.style.display = 'none';
+}
 
-// Inicialização do Swiper
-document.addEventListener('DOMContentLoaded', function () {
-  // Carrossel de Roupas (com setas)
-  new Swiper('#roupas .swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: '#roupas .swiper-button-next',
-      prevEl: '#roupas .swiper-button-prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
+// Fechar o pop-up ao clicar fora dele
+window.onclick = function (event) {
+  const popup = document.getElementById('popup-pascoa');
+  if (event.target === popup) {
+    popup.style.display = 'none';
+  }
+};
+
+// Função para adicionar produtos ao carrinho
+function adicionarAoCarrinho(botao) {
+  const produtoCard = botao.parentElement;
+  const nome = produtoCard.getAttribute('data-nome');
+  const preco = parseFloat(produtoCard.getAttribute('data-preco'));
+
+  // Verifica se o produto já está no carrinho
+  const itemExistente = carrinho.find((item) => item.nome === nome);
+
+  if (itemExistente) {
+    itemExistente.quantidade += 1; // Incrementa a quantidade
+  } else {
+    carrinho.push({ nome, preco, quantidade: 1 }); // Adiciona novo item
+  }
+
+  atualizarCarrinho();
+}
+
+// Função para remover produtos do carrinho
+function removerDoCarrinho(nome) {
+  carrinho = carrinho.filter((item) => item.nome !== nome);
+  atualizarCarrinho();
+}
+
+// Função para atualizar o carrinho na tela
+function atualizarCarrinho() {
+  const itensCarrinho = document.getElementById('itens-carrinho');
+  const totalCarrinho = document.getElementById('total-carrinho');
+
+  // Limpa o carrinho
+  itensCarrinho.innerHTML = '';
+
+  // Adiciona os itens ao carrinho
+  let total = 0;
+  carrinho.forEach((item) => {
+    const itemElemento = document.createElement('div');
+    itemElemento.classList.add('item-carrinho');
+    itemElemento.innerHTML = `
+      <span>${item.nome} (${item.quantidade}x)</span>
+      <span>R$${(item.preco * item.quantidade).toFixed(2)}</span>
+      <button onclick="removerDoCarrinho('${item.nome}')">Remover</button>
+    `;
+    itensCarrinho.appendChild(itemElemento);
+
+    total += item.preco * item.quantidade;
   });
 
-  // Carrossel de Doces (com setas)
-  new Swiper('#doces .swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: '#doces .swiper-button-next',
-      prevEl: '#doces .swiper-button-prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  });
+  // Atualiza o total
+  totalCarrinho.textContent = `R$${total.toFixed(2)}`;
+}
 
-  // Carrossel de Perfumaria (com setas)
-  new Swiper('#perfumaria .swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: '#perfumaria .swiper-button-next',
-      prevEl: '#perfumaria .swiper-button-prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  });
+// Adicionar evento de clique ao link de Páscoa no menu principal
+document.getElementById('link-pascoa').addEventListener('click', function (e) {
+  e.preventDefault(); // Evita o comportamento padrão do link
+  abrirPopup(); // Abre o pop-up
+});
+
+// Adicionar evento de clique ao link de Páscoa no sidebar
+document.getElementById('sidebar-link-pascoa').addEventListener('click', function (e) {
+  e.preventDefault(); // Evita o comportamento padrão do link
+  abrirPopup(); // Abre o pop-up
 });
