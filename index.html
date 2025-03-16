@@ -11,18 +11,27 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="hanger-icon">
-      <i class="fas fa-tshirt"></i> <!-- Ícone de cabide -->
-    </div>
-    <ul class="sidebar-links">
-      <li><a href="#roupas"><i class="fas fa-shirt"></i> Roupas</a></li>
-      <li><a href="#doces"><i class="fas fa-candy-cane"></i> Doces</a></li>
-      <li><a href="#perfumaria"><i class="fas fa-spray-can"></i> Perfumaria</a></li>
-      <li><a href="#pascoa" id="sidebar-link-pascoa"><i class="fas fa-egg"></i> Páscoa</a></li>
-    </ul>
-  </aside>
+<!-- Botão para abrir/fechar o menu -->
+<div class="menu-toggle" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i> <!-- Ícone de menu -->
+</div>
+
+<!-- Botão para abrir/fechar o menu -->
+<div class="menu-toggle" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i> <!-- Ícone de menu -->
+</div>
+
+<!-- Sidebar (menu retrátil) -->
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-links">
+    <li><a href="#roupas"><i class="fas fa-shirt"></i> Roupas</a></li>
+    <li><a href="#doces"><i class="fas fa-candy-cane"></i> Doces</a></li>
+    <li><a href="#perfumaria"><i class="fas fa-spray-can"></i> Perfumaria</a></li>
+    <li><a href="#pascoa" id="sidebar-link-pascoa"><i class="fas fa-egg"></i> Páscoa</a></li>
+  </ul>
+</aside>
+  
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
   <!-- Conteúdo Principal -->
   <header>
@@ -38,11 +47,17 @@
   </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <h1>Bem-vindo ao nosso catálogo</h1>
-      <p>Explore nossas coleções de roupas, doces, perfumaria e Páscoa.</p>
-    </div>
-  </section>
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="https://videocdn.cdnpk.net/videos/b5709d21-7b62-4bf8-b213-8025c0f58ddc/horizontal/previews/clear/large.mp4?token=exp=1742155239~hmac=eb105f5e5ac51317d261590781015d6109d064442ccb9ba380179481739e9497" type="video/mp4">
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+  </div>
+  <div class="hero-content">
+    <h1>J&J</h1>
+    <p>Conheça nossas coleções de roupas, doces e perfumaria.</p>
+  </div>
+</section>
 
   <!-- Seção de Roupas -->
   <section id="roupas" class="category">
