@@ -122,6 +122,11 @@ nav .logo {
   color: #333;
 }
 
+/* Substitua o texto pela logo */
+nav .logo img {
+  height: 40px; /* Ajuste o tamanho da logo conforme necessário */
+}
+
 nav .nav-links {
   list-style: none;
   display: flex;
@@ -234,6 +239,7 @@ nav .nav-links a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  margin: 0 10px; /* Espaçamento entre os cards */
 }
 
 .product-card:hover {
@@ -353,7 +359,7 @@ nav .nav-links a:hover {
 .produtos-lista {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  gap: 10px; /* Reduzi o espaçamento entre os cards */
 }
 
 .produto-card {
@@ -494,8 +500,8 @@ nav .nav-links a:hover {
     padding: 0.5rem 0;
   }
 
-  nav .logo {
-    font-size: 1.2rem;
+  nav .logo img {
+    height: 30px; /* Ajuste o tamanho da logo para mobile */
   }
 
   nav .nav-links {
@@ -534,11 +540,15 @@ nav .nav-links a:hover {
   .product-card {
     width: 90%;
     height: auto;
-    margin: 0 auto;
+    margin: 0 5px; /* Reduzi o espaçamento entre os cards */
   }
 
   .product-card img {
     height: 150px;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important; /* Oculta as setinhas de swipe no mobile */
   }
 
   .popup-content {
@@ -552,6 +562,7 @@ nav .nav-links a:hover {
 
   .produtos-lista {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Reduzi o espaçamento entre os cards */
   }
 
   .produto-card {
