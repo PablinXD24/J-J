@@ -151,6 +151,7 @@ nav .nav-links a:hover {
   width: 100%;
   padding: 20px 0;
   position: relative;
+  overflow: hidden;
 }
 
 .swiper-slide {
@@ -195,18 +196,210 @@ nav .nav-links a:hover {
 
 .swiper-button-next, .swiper-button-prev {
   color: #ff6f61;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: none; /* Esconde as setas por padrão */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: 40px;
+  height: 40px;
+  display: none;
 }
 
 .swiper-container:hover .swiper-button-next,
 .swiper-container:hover .swiper-button-prev {
-  display: block; /* Mostra as setas ao passar o mouse */
+  display: block;
 }
 
 .swiper-button-next::after, .swiper-button-prev::after {
   font-size: 24px;
+  font-weight: bold;
+}
+
+/* Estilos do pop-up */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h3 {
+  font-size: 2rem;
+  color: #ff6f61;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Botão de fechar */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff6f61;
+}
+
+/* Seções de produtos */
+.produtos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.categoria-produto h4 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.produtos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.produto-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produto-card h5 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.produto-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.produto-card button {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.produto-card button:hover {
+  background-color: #e65a50;
+}
+
+/* Estilos para o carrinho */
+.carrinho {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.carrinho h4 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#itens-carrinho {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.item-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-carrinho:last-child {
+  border-bottom: none;
+}
+
+.item-carrinho button {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item-carrinho button:hover {
+  background-color: #e65a50;
+}
+
+.total-carrinho {
+  text-align: right;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.total-carrinho span {
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 20px;
+  }
+
+  .popup-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .categoria-produto h4, .carrinho h4 {
+    font-size: 1.2rem;
+  }
+
+  .produtos-lista {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
