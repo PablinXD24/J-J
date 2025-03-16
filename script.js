@@ -107,3 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 });
+// Função para abrir/fechar o sidebar
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active'); // Adiciona/remove a classe "active"
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
