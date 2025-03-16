@@ -48,7 +48,37 @@
   <section id="roupas" class="category">
     <h2>Roupas</h2>
     <div class="swiper-container">
-      <div class="swiper-wrapper" id="roupas-carousel"></div>
+      <div class="swiper-wrapper" id="roupas-carousel">
+        <!-- Cards de Roupas -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/roupa1.jpg" alt="Roupa 1">
+            <h3>Camiseta Básica</h3>
+            <p>R$50,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/roupa2.jpg" alt="Roupa 2">
+            <h3>Calça Jeans</h3>
+            <p>R$120,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/roupa3.jpg" alt="Roupa 3">
+            <h3>Jaqueta de Couro</h3>
+            <p>R$250,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/roupa4.jpg" alt="Roupa 4">
+            <h3>Vestido Elegante</h3>
+            <p>R$180,00</p>
+          </div>
+        </div>
+      </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
@@ -58,7 +88,37 @@
   <section id="doces" class="category">
     <h2>Doces</h2>
     <div class="swiper-container">
-      <div class="swiper-wrapper" id="doces-carousel"></div>
+      <div class="swiper-wrapper" id="doces-carousel">
+        <!-- Cards de Doces -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/doce1.jpg" alt="Doce 1">
+            <h3>Brigadeiro Gourmet</h3>
+            <p>R$15,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/doce2.jpg" alt="Doce 2">
+            <h3>Bolo de Chocolate</h3>
+            <p>R$80,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/doce3.jpg" alt="Doce 3">
+            <h3>Cookies Artesanais</h3>
+            <p>R$25,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/doce4.jpg" alt="Doce 4">
+            <h3>Macarons Coloridos</h3>
+            <p>R$30,00</p>
+          </div>
+        </div>
+      </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
@@ -68,7 +128,37 @@
   <section id="perfumaria" class="category">
     <h2>Perfumaria</h2>
     <div class="swiper-container">
-      <div class="swiper-wrapper" id="perfumaria-carousel"></div>
+      <div class="swiper-wrapper" id="perfumaria-carousel">
+        <!-- Cards de Perfumaria -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/perfume1.jpg" alt="Perfume 1">
+            <h3>Perfume Masculino</h3>
+            <p>R$200,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/perfume2.jpg" alt="Perfume 2">
+            <h3>Perfume Feminino</h3>
+            <p>R$220,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/perfume3.jpg" alt="Perfume 3">
+            <h3>Colônia Infantil</h3>
+            <p>R$100,00</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="product-card">
+            <img src="imagens/perfume4.jpg" alt="Perfume 4">
+            <h3>Perfume Unissex</h3>
+            <p>R$180,00</p>
+          </div>
+        </div>
+      </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
@@ -80,180 +170,191 @@
     <button class="popup-button" onclick="abrirPopup()">Ver Ofertas de Páscoa</button>
   </section>
 
-  <!-- Pop-up de Páscoa -->
-  <div id="popup-pascoa" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="fecharPopup()">&times;</span>
-      <h3>Ofertas de Páscoa 2025</h3>
+<!-- Pop-up de Páscoa -->
+<div id="popup-pascoa" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="fecharPopup()">&times;</span>
+    <h3>Ofertas de Páscoa 2025</h3>
 
-      <!-- Seção de Produtos -->
-      <div class="produtos-container">
-        <!-- Ovos Tradicionais -->
-        <div class="categoria-produto">
-          <h4>Ovos Tradicionais</h4>
-          <div class="produtos-lista">
-            <div class="produto-card" data-nome="Ovo Tradicional 150g (Ao leite/crocante)" data-preco="40">
-              <h5>Ovo Tradicional 150g (Ao leite/crocante)</h5>
-              <p>R$40,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 300g (Ao leite/crocante)" data-preco="65">
-              <h5>Ovo Tradicional 300g (Ao leite/crocante)</h5>
-              <p>R$65,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 500g (Ao leite/crocante)" data-preco="75">
-              <h5>Ovo Tradicional 500g (Ao leite/crocante)</h5>
-              <p>R$75,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 1kg (Ao leite/crocante)" data-preco="135">
-              <h5>Ovo Tradicional 1kg (Ao leite/crocante)</h5>
-              <p>R$135,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 150g (Branco/crocante)" data-preco="45">
-              <h5>Ovo Tradicional 150g (Branco/crocante)</h5>
-              <p>R$45,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 300g (Branco/crocante)" data-preco="75">
-              <h5>Ovo Tradicional 300g (Branco/crocante)</h5>
-              <p>R$75,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 500g (Branco/crocante)" data-preco="85">
-              <h5>Ovo Tradicional 500g (Branco/crocante)</h5>
-              <p>R$85,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Tradicional 1kg (Branco/crocante)" data-preco="145">
-              <h5>Ovo Tradicional 1kg (Branco/crocante)</h5>
-              <p>R$145,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
+    <!-- Seção de Produtos -->
+    <div class="produtos-container">
+      <!-- Ovos Tradicionais -->
+      <div class="categoria-produto">
+        <h4>Ovos Tradicionais</h4>
+        <p>Deliciosos ovos de chocolate ao leite ou branco, com opção crocante.</p>
+        <div class="produtos-lista">
+          <div class="produto-card" data-nome="Ovo Tradicional 150g (Ao leite/crocante)" data-preco="40">
+            <h5>Ovo Tradicional 150g (Ao leite/crocante)</h5>
+            <p>R$40,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
           </div>
-        </div>
-
-        <!-- Ovos Trufados -->
-        <div class="categoria-produto">
-          <h4>Ovos Trufados</h4>
-          <div class="produtos-lista">
-            <div class="produto-card" data-nome="Ovo Trufado 300g (Ao leite)" data-preco="75">
-              <h5>Ovo Trufado 300g (Ao leite)</h5>
-              <p>R$75,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Trufado 500g (Ao leite)" data-preco="90">
-              <h5>Ovo Trufado 500g (Ao leite)</h5>
-              <p>R$90,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Trufado 1kg (Ao leite)" data-preco="130">
-              <h5>Ovo Trufado 1kg (Ao leite)</h5>
-              <p>R$130,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Trufado 300g (Branco)" data-preco="85">
-              <h5>Ovo Trufado 300g (Branco)</h5>
-              <p>R$85,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Trufado 500g (Branco)" data-preco="98">
-              <h5>Ovo Trufado 500g (Branco)</h5>
-              <p>R$98,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Trufado 1kg (Branco)" data-preco="170">
-              <h5>Ovo Trufado 1kg (Branco)</h5>
-              <p>R$170,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 300g (Ao leite/crocante)" data-preco="65">
+            <h5>Ovo Tradicional 300g (Ao leite/crocante)</h5>
+            <p>R$65,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
           </div>
-        </div>
-
-        <!-- Ovos de Colher -->
-        <div class="categoria-produto">
-          <h4>Ovos de Colher</h4>
-          <div class="produtos-lista">
-            <div class="produto-card" data-nome="Ovo de Colher 300g (Ao leite)" data-preco="80">
-              <h5>Ovo de Colher 300g (Ao leite)</h5>
-              <p>R$80,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo de Colher 500g (Ao leite)" data-preco="90">
-              <h5>Ovo de Colher 500g (Ao leite)</h5>
-              <p>R$90,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo de Colher 300g (Branco)" data-preco="90">
-              <h5>Ovo de Colher 300g (Branco)</h5>
-              <p>R$90,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo de Colher 500g (Branco)" data-preco="100">
-              <h5>Ovo de Colher 500g (Branco)</h5>
-              <p>R$100,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 500g (Ao leite/crocante)" data-preco="75">
+            <h5>Ovo Tradicional 500g (Ao leite/crocante)</h5>
+            <p>R$75,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
           </div>
-        </div>
-
-        <!-- Ovos em Formato de Coração -->
-        <div class="categoria-produto">
-          <h4>Ovos em Formato de Coração</h4>
-          <div class="produtos-lista">
-            <div class="produto-card" data-nome="Ovo Coração 500g (Ao leite)" data-preco="95">
-              <h5>Ovo Coração 500g (Ao leite)</h5>
-              <p>R$95,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Coração 1kg (Ao leite)" data-preco="150">
-              <h5>Ovo Coração 1kg (Ao leite)</h5>
-              <p>R$150,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Coração 500g (Branco)" data-preco="100">
-              <h5>Ovo Coração 500g (Branco)</h5>
-              <p>R$100,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Ovo Coração 1kg (Branco)" data-preco="170">
-              <h5>Ovo Coração 1kg (Branco)</h5>
-              <p>R$170,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 1kg (Ao leite/crocante)" data-preco="135">
+            <h5>Ovo Tradicional 1kg (Ao leite/crocante)</h5>
+            <p>R$135,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
           </div>
-        </div>
-
-        <!-- Outros Produtos -->
-        <div class="categoria-produto">
-          <h4>Outros Produtos</h4>
-          <div class="produtos-lista">
-            <div class="produto-card" data-nome="Bombona ao leite (10un.)" data-preco="18">
-              <h5>Bombona ao leite (10un.)</h5>
-              <p>R$18,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
-            <div class="produto-card" data-nome="Pirulito de Chocolate" data-preco="10">
-              <h5>Pirulito de Chocolate</h5>
-              <p>R$10,00</p>
-              <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-            </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 150g (Branco/crocante)" data-preco="45">
+            <h5>Ovo Tradicional 150g (Branco/crocante)</h5>
+            <p>R$45,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 300g (Branco/crocante)" data-preco="75">
+            <h5>Ovo Tradicional 300g (Branco/crocante)</h5>
+            <p>R$75,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 500g (Branco/crocante)" data-preco="85">
+            <h5>Ovo Tradicional 500g (Branco/crocante)</h5>
+            <p>R$85,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Tradicional 1kg (Branco/crocante)" data-preco="145">
+            <h5>Ovo Tradicional 1kg (Branco/crocante)</h5>
+            <p>R$145,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
           </div>
         </div>
       </div>
 
-      <!-- Carrinho de Compras -->
-      <div class="carrinho">
-        <h4>Carrinho</h4>
-        <div id="itens-carrinho"></div>
-        <div class="total-carrinho">
-          <h5>Total: <span id="total-carrinho">R$0,00</span></h5>
+      <!-- Ovos Trufados -->
+      <div class="categoria-produto">
+        <h4>Ovos Trufados</h4>
+        <p>Ovos com recheios especiais: ao leite, meio amargo, brigadeiro, prestígio, maracujá, beijinho e paçoca.</p>
+        <div class="produtos-lista">
+          <div class="produto-card" data-nome="Ovo Trufado 300g (Ao leite)" data-preco="75">
+            <h5>Ovo Trufado 300g (Ao leite)</h5>
+            <p>R$75,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Trufado 500g (Ao leite)" data-preco="90">
+            <h5>Ovo Trufado 500g (Ao leite)</h5>
+            <p>R$90,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Trufado 1kg (Ao leite)" data-preco="130">
+            <h5>Ovo Trufado 1kg (Ao leite)</h5>
+            <p>R$130,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Trufado 300g (Branco)" data-preco="85">
+            <h5>Ovo Trufado 300g (Branco)</h5>
+            <p>R$85,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Trufado 500g (Branco)" data-preco="98">
+            <h5>Ovo Trufado 500g (Branco)</h5>
+            <p>R$98,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Trufado 1kg (Branco)" data-preco="170">
+            <h5>Ovo Trufado 1kg (Branco)</h5>
+            <p>R$170,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ovos de Colher -->
+      <div class="categoria-produto">
+        <h4>Ovos de Colher</h4>
+        <p>Ovos cremosos para saborear com colher: brigadeiro, prestígio, limão, maracujá, beijinho e paçoca.</p>
+        <div class="produtos-lista">
+          <div class="produto-card" data-nome="Ovo de Colher 300g (Ao leite)" data-preco="80">
+            <h5>Ovo de Colher 300g (Ao leite)</h5>
+            <p>R$80,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo de Colher 500g (Ao leite)" data-preco="90">
+            <h5>Ovo de Colher 500g (Ao leite)</h5>
+            <p>R$90,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo de Colher 300g (Branco)" data-preco="90">
+            <h5>Ovo de Colher 300g (Branco)</h5>
+            <p>R$90,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo de Colher 500g (Branco)" data-preco="100">
+            <h5>Ovo de Colher 500g (Branco)</h5>
+            <p>R$100,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ovos em Formato de Coração -->
+      <div class="categoria-produto">
+        <h4>Ovos em Formato de Coração</h4>
+        <p>Ovos especiais em formato de coração, com recheios de nutella, leite ninho, brigadeiro, prestígio, limão, maracujá e paçoca.</p>
+        <div class="produtos-lista">
+          <div class="produto-card" data-nome="Ovo Coração 500g (Ao leite)" data-preco="95">
+            <h5>Ovo Coração 500g (Ao leite)</h5>
+            <p>R$95,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Coração 1kg (Ao leite)" data-preco="150">
+            <h5>Ovo Coração 1kg (Ao leite)</h5>
+            <p>R$150,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Coração 500g (Branco)" data-preco="100">
+            <h5>Ovo Coração 500g (Branco)</h5>
+            <p>R$100,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Ovo Coração 1kg (Branco)" data-preco="170">
+            <h5>Ovo Coração 1kg (Branco)</h5>
+            <p>R$170,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outros Produtos -->
+      <div class="categoria-produto">
+        <h4>Outros Produtos</h4>
+        <div class="produtos-lista">
+          <div class="produto-card" data-nome="Bombona ao leite (10un.)" data-preco="18">
+            <h5>Bombona ao leite (10un.)</h5>
+            <p>R$18,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
+          <div class="produto-card" data-nome="Pirulito de Chocolate" data-preco="10">
+            <h5>Pirulito de Chocolate</h5>
+            <p>R$10,00</p>
+            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Informações de Pagamento e Contato -->
+    <div class="informacoes-adicionais">
+      <h4>Informações Adicionais</h4>
+      <p><strong>Pagamento:</strong> 50% para sinal e 50% na entrega.</p>
+      <p><strong>Contatos:</strong> (11) 97270-2715 | (11) 99893-7643</p>
+    </div>
+
+    <!-- Carrinho de Compras -->
+    <div class="carrinho">
+      <h4>Carrinho</h4>
+      <div id="itens-carrinho"></div>
+      <div class="total-carrinho">
+        <h5>Total: <span id="total-carrinho">R$0,00</span></h5>
+      </div>
+    </div>
   </div>
+</div>
 
   <footer>
     <p>&copy; 2023 Catálogo Moderno. Todos os direitos reservados.</p>
