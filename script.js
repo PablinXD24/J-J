@@ -82,3 +82,28 @@ document.getElementById('sidebar-link-pascoa').addEventListener('click', functio
   e.preventDefault(); // Evita o comportamento padrão do link
   abrirPopup(); // Abre o pop-up
 });
+
+// Inicializar o Swiper
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.swiper-container', {
+    loop: true, // Permite rolagem infinita
+    navigation: {
+      nextEl: '.swiper-button-next', // Botão de próxima
+      prevEl: '.swiper-button-prev', // Botão de anterior
+    },
+    slidesPerView: 3, // Quantidade de slides visíveis
+    spaceBetween: 20, // Espaço entre os slides
+    breakpoints: {
+      // Responsividade
+      320: {
+        slidesPerView: 1, // 1 slide em telas pequenas
+      },
+      768: {
+        slidesPerView: 2, // 2 slides em telas médias
+      },
+      1024: {
+        slidesPerView: 3, // 3 slides em telas grandes
+      },
+    },
+  });
+});
