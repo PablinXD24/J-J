@@ -1,382 +1,585 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo Moderno</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essência | E-commerce Minimalista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Botão para abrir/fechar o menu -->
-<div class="menu-toggle" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i> <!-- Ícone de menu -->
-</div>
-
-<!-- Botão para abrir/fechar o menu -->
-<div class="menu-toggle" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i> <!-- Ícone de menu -->
-</div>
-
-<!-- Sidebar (menu retrátil) -->
-<aside class="sidebar" id="sidebar">
-  <ul class="sidebar-links">
-    <li><a href="#roupas"><i class="fas fa-shirt"></i> Roupas</a></li>
-    <li><a href="#doces"><i class="fas fa-candy-cane"></i> Doces</a></li>
-    <li><a href="#perfumaria"><i class="fas fa-spray-can"></i> Perfumaria</a></li>
-    <li><a href="#pascoa" id="sidebar-link-pascoa"><i class="fas fa-egg"></i> Páscoa</a></li>
-  </ul>
-</aside>
-  
-  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-  <!-- Conteúdo Principal -->
-  <header>
-    <nav>
-      <div class="logo">Catálogo Moderno</div>
-      <ul class="nav-links">
-        <li><a href="#roupas">Roupas</a></li>
-        <li><a href="#doces">Doces</a></li>
-        <li><a href="#perfumaria">Perfumaria</a></li>
-        <li><a href="#pascoa" id="link-pascoa">Páscoa</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-  <div class="video-background">
-    <video autoplay muted loop playsinline>
-      <source src="2126742_Woman_Business_1280x720.mp4" type="video/mp4">
-      Seu navegador não suporta vídeos HTML5.
-    </video>
-  </div>
-  <div class="hero-content">
-    <h1>Bem-vindo ao nosso catálogo</h1>
-    <p>Explore nossas coleções de roupas, doces, perfumaria e Páscoa.</p>
-  </div>
-</section>
-
-  <!-- Seção de Roupas -->
-  <section id="roupas" class="category">
-    <h2>Roupas</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper" id="roupas-carousel">
-        <!-- Cards de Roupas -->
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/roupa1.jpg" alt="Roupa 1">
-            <h3>Camiseta Básica</h3>
-            <p>R$50,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/roupa2.jpg" alt="Roupa 2">
-            <h3>Calça Jeans</h3>
-            <p>R$120,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/roupa3.jpg" alt="Roupa 3">
-            <h3>Jaqueta de Couro</h3>
-            <p>R$250,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/roupa4.jpg" alt="Roupa 4">
-            <h3>Vestido Elegante</h3>
-            <p>R$180,00</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
-
-  <!-- Seção de Doces -->
-  <section id="doces" class="category">
-    <h2>Doces</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper" id="doces-carousel">
-        <!-- Cards de Doces -->
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/doce1.jpg" alt="Doce 1">
-            <h3>Brigadeiro Gourmet</h3>
-            <p>R$15,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/doce2.jpg" alt="Doce 2">
-            <h3>Bolo de Chocolate</h3>
-            <p>R$80,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/doce3.jpg" alt="Doce 3">
-            <h3>Cookies Artesanais</h3>
-            <p>R$25,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/doce4.jpg" alt="Doce 4">
-            <h3>Macarons Coloridos</h3>
-            <p>R$30,00</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
-
-  <!-- Seção de Perfumaria -->
-  <section id="perfumaria" class="category">
-    <h2>Perfumaria</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper" id="perfumaria-carousel">
-        <!-- Cards de Perfumaria -->
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/perfume1.jpg" alt="Perfume 1">
-            <h3>Perfume Masculino</h3>
-            <p>R$200,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/perfume2.jpg" alt="Perfume 2">
-            <h3>Perfume Feminino</h3>
-            <p>R$220,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/perfume3.jpg" alt="Perfume 3">
-            <h3>Colônia Infantil</h3>
-            <p>R$100,00</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <img src="imagens/perfume4.jpg" alt="Perfume 4">
-            <h3>Perfume Unissex</h3>
-            <p>R$180,00</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
-
-  <!-- Seção de Páscoa -->
-  <section id="pascoa" class="category">
-    <h2>Páscoa</h2>
-    <button class="popup-button" onclick="abrirPopup()">Ver Ofertas de Páscoa</button>
-  </section>
-
-<!-- Pop-up de Páscoa -->
-<div id="popup-pascoa" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="fecharPopup()">&times;</span>
-    <h3>Ofertas de Páscoa 2025</h3>
-
-    <!-- Seção de Produtos -->
-    <div class="produtos-container">
-      <!-- Ovos Tradicionais -->
-      <div class="categoria-produto">
-        <h4>Ovos Tradicionais</h4>
-        <p>Deliciosos ovos de chocolate ao leite ou branco, com opção crocante.</p>
-        <div class="produtos-lista">
-          <div class="produto-card" data-nome="Ovo Tradicional 150g (Ao leite/crocante)" data-preco="40">
-            <h5>Ovo Tradicional 150g (Ao leite/crocante)</h5>
-            <p>R$40,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 300g (Ao leite/crocante)" data-preco="65">
-            <h5>Ovo Tradicional 300g (Ao leite/crocante)</h5>
-            <p>R$65,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 500g (Ao leite/crocante)" data-preco="75">
-            <h5>Ovo Tradicional 500g (Ao leite/crocante)</h5>
-            <p>R$75,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 1kg (Ao leite/crocante)" data-preco="135">
-            <h5>Ovo Tradicional 1kg (Ao leite/crocante)</h5>
-            <p>R$135,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 150g (Branco/crocante)" data-preco="45">
-            <h5>Ovo Tradicional 150g (Branco/crocante)</h5>
-            <p>R$45,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 300g (Branco/crocante)" data-preco="75">
-            <h5>Ovo Tradicional 300g (Branco/crocante)</h5>
-            <p>R$75,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 500g (Branco/crocante)" data-preco="85">
-            <h5>Ovo Tradicional 500g (Branco/crocante)</h5>
-            <p>R$85,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Tradicional 1kg (Branco/crocante)" data-preco="145">
-            <h5>Ovo Tradicional 1kg (Branco/crocante)</h5>
-            <p>R$145,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ovos Trufados -->
-      <div class="categoria-produto">
-        <h4>Ovos Trufados</h4>
-        <p>Ovos com recheios especiais: ao leite, meio amargo, brigadeiro, prestígio, maracujá, beijinho e paçoca.</p>
-        <div class="produtos-lista">
-          <div class="produto-card" data-nome="Ovo Trufado 300g (Ao leite)" data-preco="75">
-            <h5>Ovo Trufado 300g (Ao leite)</h5>
-            <p>R$75,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Trufado 500g (Ao leite)" data-preco="90">
-            <h5>Ovo Trufado 500g (Ao leite)</h5>
-            <p>R$90,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Trufado 1kg (Ao leite)" data-preco="130">
-            <h5>Ovo Trufado 1kg (Ao leite)</h5>
-            <p>R$130,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Trufado 300g (Branco)" data-preco="85">
-            <h5>Ovo Trufado 300g (Branco)</h5>
-            <p>R$85,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Trufado 500g (Branco)" data-preco="98">
-            <h5>Ovo Trufado 500g (Branco)</h5>
-            <p>R$98,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Trufado 1kg (Branco)" data-preco="170">
-            <h5>Ovo Trufado 1kg (Branco)</h5>
-            <p>R$170,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ovos de Colher -->
-      <div class="categoria-produto">
-        <h4>Ovos de Colher</h4>
-        <p>Ovos cremosos para saborear com colher: brigadeiro, prestígio, limão, maracujá, beijinho e paçoca.</p>
-        <div class="produtos-lista">
-          <div class="produto-card" data-nome="Ovo de Colher 300g (Ao leite)" data-preco="80">
-            <h5>Ovo de Colher 300g (Ao leite)</h5>
-            <p>R$80,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo de Colher 500g (Ao leite)" data-preco="90">
-            <h5>Ovo de Colher 500g (Ao leite)</h5>
-            <p>R$90,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo de Colher 300g (Branco)" data-preco="90">
-            <h5>Ovo de Colher 300g (Branco)</h5>
-            <p>R$90,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo de Colher 500g (Branco)" data-preco="100">
-            <h5>Ovo de Colher 500g (Branco)</h5>
-            <p>R$100,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ovos em Formato de Coração -->
-      <div class="categoria-produto">
-        <h4>Ovos em Formato de Coração</h4>
-        <p>Ovos especiais em formato de coração, com recheios de nutella, leite ninho, brigadeiro, prestígio, limão, maracujá e paçoca.</p>
-        <div class="produtos-lista">
-          <div class="produto-card" data-nome="Ovo Coração 500g (Ao leite)" data-preco="95">
-            <h5>Ovo Coração 500g (Ao leite)</h5>
-            <p>R$95,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Coração 1kg (Ao leite)" data-preco="150">
-            <h5>Ovo Coração 1kg (Ao leite)</h5>
-            <p>R$150,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Coração 500g (Branco)" data-preco="100">
-            <h5>Ovo Coração 500g (Branco)</h5>
-            <p>R$100,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Ovo Coração 1kg (Branco)" data-preco="170">
-            <h5>Ovo Coração 1kg (Branco)</h5>
-            <p>R$170,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Outros Produtos -->
-      <div class="categoria-produto">
-        <h4>Outros Produtos</h4>
-        <div class="produtos-lista">
-          <div class="produto-card" data-nome="Bombona ao leite (10un.)" data-preco="18">
-            <h5>Bombona ao leite (10un.)</h5>
-            <p>R$18,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-          <div class="produto-card" data-nome="Pirulito de Chocolate" data-preco="10">
-            <h5>Pirulito de Chocolate</h5>
-            <p>R$10,00</p>
-            <button onclick="adicionarAoCarrinho(this)">Adicionar</button>
-          </div>
-        </div>
-      </div>
+    <div class="cursor"></div>
+    
+    <div class="notification">
+        <span class="notification-close">&times;</span>
+        <p></p>
     </div>
 
-    <!-- Informações de Pagamento e Contato -->
-    <div class="informacoes-adicionais">
-      <h4>Informações Adicionais</h4>
-      <p><strong>Pagamento:</strong> 50% para sinal e 50% na entrega.</p>
-      <p><strong>Contatos:</strong> (11) 97270-2715 | (11) 99893-7643</p>
+    <div class="cart-overlay"></div>
+    <aside class="cart-panel">
+        <div class="cart-header">
+            <h3>Sua Seleção</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span class="total-price">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn">Finalizar</button>
+        </div>
+    </aside>
+
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="#" class="logo">essência</a>
+            
+            <div class="nav-links">
+                <a href="#clothes">Roupas</a>
+                <a href="#cosmetics">Cosméticos</a>
+                <a href="#sweets">Doces</a>
+                <a href="#easter">Páscoa</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-btn">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span>Menos é</span>
+                <span>paixão</span>
+            </h1>
+            <p class="hero-subtitle">Seleção cuidadosa de itens essenciais</p>
+            <a href="#clothes" class="hero-cta">Explorar</a>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="category-section" id="clothes">
+        <div class="section-header">
+            <span class="section-subtitle">Coleção Atual</span>
+            <h2 class="section-title">Roupas</h2>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="products-carousel">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Minimal">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Camiseta Minimal</h4>
+                        <span class="product-price">R$ 89,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Calça Elegante">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Calça Elegante</h4>
+                        <span class="product-price">R$ 159,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Vestido Floral">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Vestido Floral</h4>
+                        <span class="product-price">R$ 199,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Blazer Moderno">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Blazer Moderno</h4>
+                        <span class="product-price">R$ 289,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Jaqueta Jeans">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Jaqueta Jeans</h4>
+                        <span class="product-price">R$ 229,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Saia Plissada">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Saia Plissada</h4>
+                        <span class="product-price">R$ 149,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595341595379-cf0f2a50a540?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Shorts Alfaiataria">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Shorts Alfaiataria</h4>
+                        <span class="product-price">R$ 129,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Blusa de Seda">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Blusa de Seda</h4>
+                        <span class="product-price">R$ 179,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Macacão Elegante">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Macacão Elegante</h4>
+                        <span class="product-price">R$ 239,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cardigã Confortável">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Cardigã Confortável</h4>
+                        <span class="product-price">R$ 169,90</span>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <div class="parallax-divider" style="background-color: #f8e1e4;">
+        <div class="parallax-content">
+            <h3>Qualidade que permanece</h3>
+        </div>
     </div>
 
-    <!-- Carrinho de Compras -->
-    <div class="carrinho">
-      <h4>Carrinho</h4>
-      <div id="itens-carrinho"></div>
-      <div class="total-carrinho">
-        <h5>Total: <span id="total-carrinho">R$0,00</span></h5>
-      </div>
+    <section class="category-section" id="cosmetics">
+        <div class="section-header">
+            <span class="section-subtitle">Beleza Natural</span>
+            <h2 class="section-title">Cosméticos</h2>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="products-carousel">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kit Skincare">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Kit Skincare</h4>
+                        <span class="product-price">R$ 149,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Perfume Essencial">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Perfume Essencial</h4>
+                        <span class="product-price">R$ 289,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Batom Natural">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Batom Natural</h4>
+                        <span class="product-price">R$ 49,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595425964079-6b1ef38e6a1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hidratante Facial">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Hidratante Facial</h4>
+                        <span class="product-price">R$ 79,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Óleo Corporal">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Óleo Corporal</h4>
+                        <span class="product-price">R$ 89,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Máscara Facial">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Máscara Facial</h4>
+                        <span class="product-price">R$ 59,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1619451334790-6ed89e0e4a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Esmalte Vegano">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Esmalte Vegano</h4>
+                        <span class="product-price">R$ 29,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Protetor Solar">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Protetor Solar</h4>
+                        <span class="product-price">R$ 69,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Batom Matte">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Batom Matte</h4>
+                        <span class="product-price">R$ 54,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Óleo de Banho">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Óleo de Banho</h4>
+                        <span class="product-price">R$ 74,90</span>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <div class="parallax-divider" style="background-color: #e63946; color: white;">
+        <div class="parallax-content">
+            <h3>Sabores que encantam</h3>
+        </div>
     </div>
-  </div>
-</div>
 
-  <footer>
-    <p>&copy; 2023 Catálogo Moderno. Todos os direitos reservados.</p>
-  </footer>
+    <section class="category-section" id="sweets">
+        <div class="section-header">
+            <span class="section-subtitle">Delícias</span>
+            <h2 class="section-title">Doces</h2>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="products-carousel">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Caixa de Bombons">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Caixa de Bombons</h4>
+                        <span class="product-price">R$ 39,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Trufas Artesanais">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Trufas Artesanais</h4>
+                        <span class="product-price">R$ 69,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542843137-8791a6904d14?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Doces Regionais">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Doces Regionais</h4>
+                        <span class="product-price">R$ 59,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586399288821-ce990a59d4fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Brigadeiros Gourmet">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Brigadeiros Gourmet</h4>
+                        <span class="product-price">R$ 49,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cookies Artesanais">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Cookies Artesanais</h4>
+                        <span class="product-price">R$ 34,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chocolates Finos">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Chocolates Finos</h4>
+                        <span class="product-price">R$ 89,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Bolo de Pote">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Bolo de Pote</h4>
+                        <span class="product-price">R$ 19,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Trufas de Morango">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Trufas de Morango</h4>
+                        <span class="product-price">R$ 64,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542843137-8791a6904d14?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Doce de Leite">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Doce de Leite</h4>
+                        <span class="product-price">R$ 39,90</span>
+                    </div>
+                </div>
+                
+                <!-- Produto 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586399288821-ce990a59d4fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Beijinho Gourmet">
+                        <button class="add-to-cart">Adicionar</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Beijinho Gourmet</h4>
+                        <span class="product-price">R$ 44,90</span>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+    <section class="easter-section" id="easter">
+        <div class="section-header">
+            <span class="section-subtitle">Edição Limitada</span>
+            <h2 class="section-title">Ovos de Páscoa</h2>
+        </div>
+        
+        <div class="easter-container">
+            <div class="easter-form">
+                <h3>Cotação Personalizada</h3>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <select id="eggType" required>
+                            <option value="" disabled selected>Tipo de Chocolate</option>
+                            <option value="leite">Ao Leite</option>
+                            <option value="branco">Branco</option>
+                            <option value="amargo">Amargo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="eggSize" required>
+                            <option value="" disabled selected>Tamanho</option>
+                            <option value="150">150g</option>
+                            <option value="250">250g</option>
+                            <option value="500">500g</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="eggFilling" required>
+                            <option value="" disabled selected>Recheio</option>
+                            <option value="brigadeiro">Brigadeiro</option>
+                            <option value="nutella">Nutella</option>
+                            <option value="doce-leite">Doce de Leite</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="quote-submit">Solicitar Cotação</button>
+                </form>
+            </div>
+            
+            <div class="easter-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-badge">Mais Pedido</div>
+                    <div class="showcase-image" style="background-color: #f5d6d6;"></div>
+                    <div class="showcase-info">
+                        <h4>Ovo Premium</h4>
+                        <p>Chocolate belga 70% cacau</p>
+                        <span class="showcase-price">R$ 129,90</span>
+                        <button class="showcase-add">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>essência</h3>
+                <p>Seleção de itens essenciais com propósito</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="links-column">
+                    <h4>Navegar</h4>
+                    <a href="#clothes">Roupas</a>
+                    <a href="#cosmetics">Cosméticos</a>
+                    <a href="#sweets">Doces</a>
+                </div>
+                
+                <div class="links-column">
+                    <h4>Informações</h4>
+                    <a href="#">Sobre</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Termos</a>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Receba nossas seleções</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Essência. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
