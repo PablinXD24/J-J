@@ -5,6 +5,7 @@
     --secondary: #f5d6d6;     /* Rosa pálido */
     --neutral: #f9f5f0;       /* Bege claro */
     --text: #3a3a3a;          /* Texto escuro */
+    --text-light: #888;       /* Texto cinza */
     --light: #ffffff;         /* Branco */
     --border: #e0d6d0;        /* Borda bege */
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -220,6 +221,49 @@ button {
 .auth-links a:hover {
     color: var(--primary);
 }
+
+/* Estilos para login com Google */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+    margin: 0 10px;
+}
+
+.auth-google {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--light);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.auth-google:hover {
+    background-color: #f8f8f8;
+    border-color: var(--text-light);
+}
+
+.auth-google i {
+    color: #4285F4;
+}
+
+/* ... (o restante do seu CSS existente permanece igual) ... */
 
 /* Profile Styles */
 .profile-overlay {
