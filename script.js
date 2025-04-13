@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Configuração do Firebase
-    const firebaseConfig = {
-        apiKey: "SUA_API_KEY",
-        authDomain: "SEU_PROJETO.firebaseapp.com",
-        projectId: "SEU_PROJETO",
-        storageBucket: "SEU_PROJETO.appspot.com",
-        messagingSenderId: "SEU_SENDER_ID",
-        appId: "SEU_APP_ID"
-    };
+ const firebaseConfig = {
+    apiKey: "AIzaSyBQdw7hIkhoby8n_4pl41zwjEqHYNtQDRw",
+    authDomain: "ecommerce-jj.firebaseapp.com",
+    projectId: "ecommerce-jj",
+    storageBucket: "ecommerce-jj.firebasestorage.app",
+    messagingSenderId: "773988929532",
+    appId: "1:773988929532:web:6bff6f6ad3968436edac79"
+  };
 
     // Inicialize o Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
+    
+    // Configurar provedor de autenticação do Google
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
 
     // Estado do usuário
     let currentUser = null;
@@ -369,6 +372,36 @@ document.addEventListener('DOMContentLoaded', function() {
             tab.classList.add('active');
             document.querySelector(`.method-content[data-method="${method}"]`).classList.add('active');
         });
+    });
+    
+    // Login com Google
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('auth-google') || e.target.closest('.auth-google')) {
+            auth.signInWithPopup(googleProvider)
+                .then((result) => {
+                    // Verificar se é um novo usuário
+                    const isNewUser = result.additionalUserInfo.isNewUser;
+                    const user = result.user;
+                    
+                    if (isNewUser) {
+                        // Salvar informações do usuário no Firestore
+                        return db.collection('users').doc(user.uid).set({
+                            name: user.displayName || 'Usuário Google',
+                            email: user.email,
+                            phone: user.phoneNumber || '',
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                    }
+                })
+                .then(() => {
+                    showNotification('Login com Google realizado com sucesso!');
+                    toggleAuthPanel();
+                })
+                .catch((error) => {
+                    console.error('Erro no login com Google:', error);
+                    showNotification('Erro ao fazer login com Google: ' + error.message);
+                });
+        }
     });
     
     // Login
