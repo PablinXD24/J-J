@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Configuração do Firebase
+    const firebaseConfig = {
+        apiKey: "SUA_API_KEY",
+        authDomain: "SEU_PROJETO.firebaseapp.com",
+        projectId: "SEU_PROJETO",
+        storageBucket: "SEU_PROJETO.appspot.com",
+        messagingSenderId: "SEU_SENDER_ID",
+        appId: "SEU_APP_ID"
+    };
+
+    // Inicialize o Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Estado do usuário
+    let currentUser = null;
+    let cart = [];
+
     // Efeito de cursor personalizado
     const cursor = document.querySelector('.cursor');
     const links = document.querySelectorAll('a, button, .add-to-cart, .showcase-add');
@@ -45,8 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const cartItemsContainer = document.querySelector('.cart-items');
     const totalPriceElement = document.querySelector('.total-price');
-    
-    let cart = [];
+    const checkoutBtn = document.querySelector('.checkout-btn');
     
     // Abrir/fechar carrinho
     cartBtn.addEventListener('click', toggleCart);
@@ -257,4 +275,356 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Executa uma vez ao carregar
+
+    // Autenticação e Perfil
+    const userBtn = document.querySelector('.user-btn');
+    const authOverlay = document.querySelector('.auth-overlay');
+    const authPanel = document.querySelector('.auth-panel');
+    const closeAuth = document.querySelector('.close-auth');
+    const authTabs = document.querySelectorAll('.auth-tab');
+    const authForms = document.querySelectorAll('.auth-form');
+    
+    const profileOverlay = document.querySelector('.profile-overlay');
+    const profilePanel = document.querySelector('.profile-panel');
+    const closeProfile = document.querySelector('.close-profile');
+    const logoutBtn = document.querySelector('.logout-btn');
+    
+    const addressOverlay = document.querySelector('.address-overlay');
+    const addressPanel = document.querySelector('.address-panel');
+    const closeAddress = document.querySelector('.close-address');
+    const addressForm = document.getElementById('addressForm');
+    const addAddressBtn = document.querySelector('.add-address');
+    
+    const paymentOverlay = document.querySelector('.payment-overlay');
+    const paymentPanel = document.querySelector('.payment-panel');
+    const closePayment = document.querySelector('.close-payment');
+    const paymentTabs = document.querySelectorAll('.method-tab');
+    const paymentForms = document.querySelectorAll('.method-content');
+    const paymentForm = document.getElementById('paymentForm');
+    const generatePixBtn = document.querySelector('.generate-pix');
+    
+    // Alternar entre painéis
+    function toggleAuthPanel() {
+        authOverlay.classList.toggle('active');
+        authPanel.classList.toggle('active');
+    }
+    
+    function toggleProfilePanel() {
+        profileOverlay.classList.toggle('active');
+        profilePanel.classList.toggle('active');
+    }
+    
+    function toggleAddressPanel() {
+        addressOverlay.classList.toggle('active');
+        addressPanel.classList.toggle('active');
+    }
+    
+    function togglePaymentPanel() {
+        paymentOverlay.classList.toggle('active');
+        paymentPanel.classList.toggle('active');
+    }
+    
+    // Event Listeners
+    userBtn.addEventListener('click', () => {
+        if (currentUser) {
+            toggleProfilePanel();
+        } else {
+            toggleAuthPanel();
+        }
+    });
+    
+    closeAuth.addEventListener('click', toggleAuthPanel);
+    authOverlay.addEventListener('click', toggleAuthPanel);
+    
+    closeProfile.addEventListener('click', toggleProfilePanel);
+    profileOverlay.addEventListener('click', toggleProfilePanel);
+    
+    closeAddress.addEventListener('click', toggleAddressPanel);
+    addressOverlay.addEventListener('click', toggleAddressPanel);
+    
+    closePayment.addEventListener('click', togglePaymentPanel);
+    paymentOverlay.addEventListener('click', togglePaymentPanel);
+    
+    // Alternar entre abas de login/cadastro
+    authTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabName = tab.dataset.tab;
+            
+            authTabs.forEach(t => t.classList.remove('active'));
+            authForms.forEach(f => f.classList.remove('active'));
+            
+            tab.classList.add('active');
+            document.querySelector(`.auth-form[data-form="${tabName}"]`).classList.add('active');
+        });
+    });
+    
+    // Alternar entre métodos de pagamento
+    paymentTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const method = tab.dataset.method;
+            
+            paymentTabs.forEach(t => t.classList.remove('active'));
+            paymentForms.forEach(f => f.classList.remove('active'));
+            
+            tab.classList.add('active');
+            document.querySelector(`.method-content[data-method="${method}"]`).classList.add('active');
+        });
+    });
+    
+    // Login
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                showNotification('Login realizado com sucesso!');
+                toggleAuthPanel();
+                loadUserProfile(userCredential.user.uid);
+            })
+            .catch((error) => {
+                showNotification('Erro ao fazer login: ' + error.message);
+            });
+    });
+    
+    // Cadastro
+    const registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const name = document.getElementById('registerName').value;
+        const phone = document.getElementById('registerPhone').value;
+        const cpf = document.getElementById('registerCpf').value;
+        const birth = document.getElementById('registerBirth').value;
+        
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Salvar informações adicionais no Firestore
+                return db.collection('users').doc(userCredential.user.uid).set({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    cpf: cpf,
+                    birth: birth,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            })
+            .then(() => {
+                showNotification('Cadastro realizado com sucesso!');
+                toggleAuthPanel();
+                loadUserProfile(auth.currentUser.uid);
+            })
+            .catch((error) => {
+                showNotification('Erro ao cadastrar: ' + error.message);
+            });
+    });
+    
+    // Logout
+    logoutBtn.addEventListener('click', () => {
+        auth.signOut().then(() => {
+            showNotification('Você saiu da sua conta');
+            toggleProfilePanel();
+            currentUser = null;
+            updateUserUI();
+        }).catch((error) => {
+            showNotification('Erro ao sair: ' + error.message);
+        });
+    });
+    
+    // Adicionar endereço
+    addAddressBtn.addEventListener('click', toggleAddressPanel);
+    addressForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const addressData = {
+            cep: document.getElementById('addressCep').value,
+            street: document.getElementById('addressStreet').value,
+            number: document.getElementById('addressNumber').value,
+            complement: document.getElementById('addressComplement').value,
+            neighborhood: document.getElementById('addressNeighborhood').value,
+            city: document.getElementById('addressCity').value,
+            state: document.getElementById('addressState').value,
+            isDefault: document.getElementById('addressDefault').checked,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+        
+        db.collection('users').doc(currentUser.uid).collection('addresses').add(addressData)
+            .then(() => {
+                showNotification('Endereço adicionado com sucesso!');
+                toggleAddressPanel();
+                addressForm.reset();
+            })
+            .catch((error) => {
+                showNotification('Erro ao adicionar endereço: ' + error.message);
+            });
+    });
+    
+    // Finalizar compra
+    checkoutBtn.addEventListener('click', () => {
+        if (!currentUser) {
+            showNotification('Por favor, faça login para finalizar a compra');
+            toggleAuthPanel();
+            return;
+        }
+        
+        if (cart.length === 0) {
+            showNotification('Seu carrinho está vazio');
+            return;
+        }
+        
+        // Atualizar resumo do pedido
+        const orderItems = document.querySelector('.order-items');
+        orderItems.innerHTML = '';
+        
+        cart.forEach(item => {
+            const orderItem = document.createElement('div');
+            orderItem.className = 'order-item';
+            orderItem.innerHTML = `
+                <span>${item.name} x${item.quantity}</span>
+                <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+            `;
+            orderItems.appendChild(orderItem);
+        });
+        
+        // Atualizar total
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        document.querySelector('.order-total-price').textContent = `R$ ${total.toFixed(2)}`;
+        
+        toggleCart();
+        togglePaymentPanel();
+    });
+    
+    // Processar pagamento
+    paymentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const cardNumber = document.getElementById('cardNumber').value;
+        const cardName = document.getElementById('cardName').value;
+        const cardExpiry = document.getElementById('cardExpiry').value;
+        const cardCvv = document.getElementById('cardCvv').value;
+        const installments = document.getElementById('cardInstallments').value;
+        
+        // Aqui você integraria com a API de pagamento (Stripe, Pagar.me, etc.)
+        // Esta é uma simulação básica
+        
+        showNotification('Processando pagamento...');
+        
+        // Simular processamento
+        setTimeout(() => {
+            // Criar pedido no Firestore
+            const orderData = {
+                userId: currentUser.uid,
+                items: cart,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                paymentMethod: 'credit_card',
+                status: 'processing',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+            
+            db.collection('orders').add(orderData)
+                .then(() => {
+                    showNotification('Pagamento aprovado! Pedido realizado com sucesso.');
+                    cart = [];
+                    updateCart();
+                    togglePaymentPanel();
+                })
+                .catch((error) => {
+                    showNotification('Erro ao registrar pedido: ' + error.message);
+                });
+        }, 2000);
+    });
+    
+    // PIX
+    generatePixBtn.addEventListener('click', () => {
+        // Simular geração de PIX
+        showNotification('Gerando código PIX...');
+        
+        setTimeout(() => {
+            // Criar pedido no Firestore
+            const orderData = {
+                userId: currentUser.uid,
+                items: cart,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                paymentMethod: 'pix',
+                status: 'waiting_payment',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+            
+            db.collection('orders').add(orderData)
+                .then(() => {
+                    showNotification('Código PIX gerado! Verifique seu e-mail para efetuar o pagamento.');
+                    cart = [];
+                    updateCart();
+                    togglePaymentPanel();
+                })
+                .catch((error) => {
+                    showNotification('Erro ao gerar PIX: ' + error.message);
+                });
+        }, 1000);
+    });
+    
+    // Carregar perfil do usuário
+    function loadUserProfile(userId) {
+        db.collection('users').doc(userId).get()
+            .then((doc) => {
+                if (doc.exists) {
+                    currentUser = {
+                        uid: userId,
+                        ...doc.data()
+                    };
+                    updateUserUI();
+                    updateProfileUI();
+                }
+            })
+            .catch((error) => {
+                console.error('Erro ao carregar perfil:', error);
+            });
+    }
+    
+    // Atualizar UI com estado do usuário
+    function updateUserUI() {
+        if (currentUser) {
+            userBtn.innerHTML = `
+                <div class="user-avatar">${currentUser.name.charAt(0).toUpperCase()}</div>
+            `;
+        } else {
+            userBtn.innerHTML = '<i class="fas fa-user"></i>';
+        }
+    }
+    
+    // Atualizar informações do perfil
+    function updateProfileUI() {
+        if (!currentUser) return;
+        
+        document.getElementById('profileName').textContent = currentUser.name;
+        document.getElementById('profileEmail').textContent = currentUser.email;
+        document.getElementById('profilePhone').textContent = currentUser.phone || 'Não informado';
+        document.getElementById('profileCpf').textContent = currentUser.cpf || 'Não informado';
+        document.getElementById('profileBirth').textContent = currentUser.birth ? new Date(currentUser.birth).toLocaleDateString('pt-BR') : 'Não informado';
+    }
+    
+    // Observador de estado de autenticação
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            loadUserProfile(user.uid);
+        } else {
+            currentUser = null;
+            updateUserUI();
+        }
+    });
+    
+    // Inicializar máscaras (opcional)
+    if (window.Inputmask) {
+        Inputmask('999.999.999-99').mask(document.getElementById('registerCpf'));
+        Inputmask('(99) 99999-9999').mask(document.getElementById('registerPhone'));
+        Inputmask('99999-999').mask(document.getElementById('addressCep'));
+        Inputmask('9999 9999 9999 9999').mask(document.getElementById('cardNumber'));
+        Inputmask('99/99').mask(document.getElementById('cardExpiry'));
+        Inputmask('999').mask(document.getElementById('cardCvv'));
+    }
 });
