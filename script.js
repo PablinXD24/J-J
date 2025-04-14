@@ -306,6 +306,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const paymentForm = document.getElementById('paymentForm');
     const generatePixBtn = document.querySelector('.generate-pix');
     
+    // Painel de edição de perfil
+    const editProfilePanel = document.createElement('div');
+    editProfilePanel.className = 'edit-profile-panel';
+    editProfilePanel.innerHTML = `
+        <div class="edit-profile-header">
+            <h3>Editar Perfil</h3>
+            <button class="close-edit-profile">&times;</button>
+        </div>
+        <form id="editProfileForm" class="edit-profile-form">
+            <div class="form-group">
+                <input type="text" id="editName" placeholder="Nome completo" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="editPhone" placeholder="Telefone (com DDD)" required>
+            </div>
+            <button type="submit" class="edit-profile-submit">Salvar Alterações</button>
+        </form>
+    `;
+    document.body.appendChild(editProfilePanel);
+    
+    const closeEditProfile = document.querySelector('.close-edit-profile');
+    const editProfileForm = document.getElementById('editProfileForm');
+    
     // Alternar entre painéis
     function toggleAuthPanel() {
         authOverlay.classList.toggle('active');
@@ -325,6 +348,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function togglePaymentPanel() {
         paymentOverlay.classList.toggle('active');
         paymentPanel.classList.toggle('active');
+    }
+    
+    function toggleEditProfilePanel() {
+        editProfilePanel.classList.toggle('active');
+        
+        if (editProfilePanel.classList.contains('active')) {
+            document.getElementById('editName').value = currentUser.name || '';
+            document.getElementById('editPhone').value = currentUser.phone || '';
+        }
     }
     
     // Event Listeners
@@ -347,6 +379,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     closePayment.addEventListener('click', togglePaymentPanel);
     paymentOverlay.addEventListener('click', togglePaymentPanel);
+    
+    closeEditProfile.addEventListener('click', toggleEditProfilePanel);
+    
+    document.querySelector('.edit-profile').addEventListener('click', toggleEditProfilePanel);
     
     // Alternar entre abas de login/cadastro
     authTabs.forEach(tab => {
@@ -457,6 +493,27 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
     
+    // Edição de perfil
+    editProfileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('editName').value;
+        const phone = document.getElementById('editPhone').value;
+        
+        db.collection('users').doc(currentUser.uid).update({
+            name: name,
+            phone: phone
+        })
+        .then(() => {
+            showNotification('Perfil atualizado com sucesso!');
+            loadUserProfile(currentUser.uid);
+            toggleEditProfilePanel();
+        })
+        .catch((error) => {
+            showNotification('Erro ao atualizar perfil: ' + error.message);
+        });
+    });
+    
     // Logout
     logoutBtn.addEventListener('click', () => {
         auth.signOut().then(() => {
@@ -491,10 +548,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 showNotification('Endereço adicionado com sucesso!');
                 toggleAddressPanel();
                 addressForm.reset();
+                loadUserAddresses(currentUser.uid);
             })
             .catch((error) => {
                 showNotification('Erro ao adicionar endereço: ' + error.message);
             });
+    });
+    
+    // Remover endereço
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-address')) {
+            const addressId = e.target.dataset.id;
+            db.collection('users').doc(currentUser.uid).collection('addresses').doc(addressId).delete()
+                .then(() => {
+                    showNotification('Endereço removido com sucesso!');
+                    loadUserAddresses(currentUser.uid);
+                })
+                .catch((error) => {
+                    showNotification('Erro ao remover endereço: ' + error.message);
+                });
+        }
     });
     
     // Finalizar compra
@@ -612,10 +685,43 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                     updateUserUI();
                     updateProfileUI();
+                    loadUserAddresses(userId);
                 }
             })
             .catch((error) => {
                 console.error('Erro ao carregar perfil:', error);
+            });
+    }
+    
+    // Carregar endereços do usuário
+    function loadUserAddresses(userId) {
+        db.collection('users').doc(userId).collection('addresses').get()
+            .then((querySnapshot) => {
+                const addressesContainer = document.querySelector('.profile-details .detail-item:last-child');
+                addressesContainer.innerHTML = '<span><i class="fas fa-map-marker-alt"></i> Endereços:</span>';
+                
+                querySnapshot.forEach((doc) => {
+                    const address = doc.data();
+                    const addressElement = document.createElement('div');
+                    addressElement.className = 'address-item';
+                    addressElement.innerHTML = `
+                        <p>${address.street}, ${address.number} - ${address.neighborhood}</p>
+                        <p>${address.city}/${address.state} - ${address.cep}</p>
+                        ${address.complement ? `<p>Complemento: ${address.complement}</p>` : ''}
+                        ${address.isDefault ? '<span class="default-badge">Principal</span>' : ''}
+                        <button class="remove-address" data-id="${doc.id}">Remover</button>
+                    `;
+                    addressesContainer.appendChild(addressElement);
+                });
+                
+                const addButton = document.createElement('button');
+                addButton.className = 'add-address';
+                addButton.textContent = '+ Adicionar endereço';
+                addButton.addEventListener('click', toggleAddressPanel);
+                addressesContainer.appendChild(addButton);
+            })
+            .catch((error) => {
+                console.error('Erro ao carregar endereços:', error);
             });
     }
     
